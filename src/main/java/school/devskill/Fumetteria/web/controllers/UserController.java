@@ -44,4 +44,16 @@ public class UserController {
         return ritorno;
     }
 
+    @DeleteMapping(value = HTTPUtility.DELETE)
+    public UserDTO userDelete(@PathVariable Integer id){
+
+        return mapper.convertValue(userService.deleteUser(id),UserDTO.class);
+    };
+
+    @PutMapping(value = HTTPUtility.UPDATE)
+    public UserDTO userUpdate(@PathVariable("id") Integer id, @RequestBody UserCommand command){
+        User daModificare = mapper.convertValue(command,User.class);
+        daModificare.setId(id);
+        return mapper.convertValue(userService.updateUser(daModificare), UserDTO.class);
+    };
 }

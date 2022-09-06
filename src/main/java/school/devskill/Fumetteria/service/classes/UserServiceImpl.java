@@ -7,6 +7,7 @@ import school.devskill.Fumetteria.persistence.repository.IUserRepository;
 import school.devskill.Fumetteria.service.interfaces.IUserService;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class UserServiceImpl implements IUserService {
@@ -20,21 +21,45 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public List<User> getUsers() {
-        return null;
+
+        return (List<User>) userRepository.findAll();
     }
 
     @Override
     public User createUser(User newUser) {
+
         return userRepository.save(newUser);
     }
 
     @Override
     public User deleteUser(Integer id) {
-        return null;
+        User daCancellare;
+        try {
+            daCancellare = userRepository.findById(id).get();
+            userRepository.delete(daCancellare);
+        } catch (NoSuchElementException e) {
+            daCancellare = new User();
+        }
+        return daCancellare;
     }
 
     @Override
-    public User updateUser(User user) {
-        return null;
+    public User updateUser(User userAggiornato) {
+        User userCorrente = userRepository.findById(userAggiornato.getId()).get();
+
+        if(userAggiornato.getName() != null) {
+            userCorrente.setName(userAggiornato.getName());
+        }
+
+        if(userAggiornato.getSurname() != null) {
+            userCorrente.setSurname(userAggiornato.getSurname());
+        }
+
+        if(userAggiornato.getUsername() != null) {
+            userCorrente.setUsername(userAggiornato.getUsername());
+        }
+
+        return userRepository.save(userCorrente);
     }
-}
+    }
+
