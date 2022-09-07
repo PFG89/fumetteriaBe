@@ -59,6 +59,10 @@ public class UserServiceImpl implements IUserService {
             userCorrente.setUsername(userAggiornato.getUsername());
         }
 
+        if(userAggiornato.getPassword() != null) {
+            userCorrente.setPassword(userAggiornato.getPassword());
+        }
+
         return userRepository.save(userCorrente);
     }
     }
