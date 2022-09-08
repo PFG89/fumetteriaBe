@@ -7,7 +7,8 @@ import school.devskill.Fumetteria.model.User;
 import school.devskill.Fumetteria.service.interfaces.IUserService;
 import school.devskill.Fumetteria.utility.HTTPUtility;
 import school.devskill.Fumetteria.web.command.UserCommand;
-import school.devskill.Fumetteria.web.dto.UserDTO;
+import school.devskill.Fumetteria.web.dto.list.ListUserDTO;
+import school.devskill.Fumetteria.web.dto.single.UserDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,23 @@ public class UserController {
         }
         return ritorno;
     }
+
+    @GetMapping(value = HTTPUtility.LIST)
+        public ListUserDTO listaUsers() {
+        List<User> usersDalDb = userService.getUsers();
+        ListUserDTO ritorno = new ListUserDTO();
+        for (int i = 0; i < usersDalDb.size(); i++) {
+            try {
+                ritorno.getList().add(mapper.convertValue(usersDalDb.get(i), UserDTO.class));
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        }
+        return ritorno;
+    }
+
+
+
 
     @DeleteMapping(value = HTTPUtility.DELETE)
     public UserDTO userDelete(@PathVariable Integer id){

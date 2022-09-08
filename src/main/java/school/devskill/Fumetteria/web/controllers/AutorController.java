@@ -6,7 +6,7 @@ import school.devskill.Fumetteria.model.Autor;
 import school.devskill.Fumetteria.service.interfaces.IAutorService;
 import school.devskill.Fumetteria.utility.HTTPUtility;
 import school.devskill.Fumetteria.web.command.AutorCommand;
-import school.devskill.Fumetteria.web.dto.AutorDTO;
+import school.devskill.Fumetteria.web.dto.single.AutorDTO;
 
 
 import java.util.ArrayList;
