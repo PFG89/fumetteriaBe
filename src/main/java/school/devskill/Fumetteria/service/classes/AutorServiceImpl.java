@@ -20,6 +20,13 @@ public class AutorServiceImpl implements IAutorService {
         this.autorRepository = autorRepository;
     }
 
+    /**
+    @Override
+    public Autor getAutor(Integer id) {
+        return autorRepository.autorPerId(id);
+    }
+    **/
+
 
     @Override
     public Autor createAutor(Autor newAutor) {

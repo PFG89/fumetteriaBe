@@ -17,11 +17,12 @@ import javax.persistence.*;
 public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 100, name = "name")
     private String name;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 100, name = "surname")
     private String surname;
 }

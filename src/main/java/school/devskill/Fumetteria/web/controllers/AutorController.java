@@ -3,10 +3,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import school.devskill.Fumetteria.model.Autor;
+import school.devskill.Fumetteria.model.User;
 import school.devskill.Fumetteria.service.interfaces.IAutorService;
 import school.devskill.Fumetteria.utility.HTTPUtility;
 import school.devskill.Fumetteria.web.command.AutorCommand;
+import school.devskill.Fumetteria.web.dto.list.ListAutorDTO;
+import school.devskill.Fumetteria.web.dto.list.ListUserDTO;
 import school.devskill.Fumetteria.web.dto.single.AutorDTO;
+import school.devskill.Fumetteria.web.dto.single.UserDTO;
 
 
 import java.util.ArrayList;
@@ -37,6 +41,20 @@ public class AutorController {
         for (int i = 0; i < autorsDalDb.size(); i++) {
             try {
                 ritorno.add(mapper.convertValue(autorsDalDb.get(i), AutorDTO.class));
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+        }
+        return ritorno;
+    }
+
+    @GetMapping(value = HTTPUtility.LIST)
+    public ListAutorDTO listaAutors() {
+        List<Autor> autorsDalDb = autorService.getAutors();
+        ListAutorDTO ritorno = new ListAutorDTO();
+        for (int i = 0; i < autorsDalDb.size(); i++) {
+            try {
+                ritorno.getList().add(mapper.convertValue(autorsDalDb.get(i), AutorDTO.class));
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
             }

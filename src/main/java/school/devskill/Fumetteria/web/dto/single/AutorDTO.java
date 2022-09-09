@@ -13,4 +13,8 @@ public class AutorDTO {
     private Integer id;
     private String name;
     private String surname;
+
+    public AutorDTO(Integer id){
+        this.id=id;
+    }
 }

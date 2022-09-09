@@ -5,6 +5,10 @@ import school.devskill.Fumetteria.model.Autor;
 import java.util.List;
 
 public interface IAutorService {
+
+
+    /** Autor getAutor(Integer id); **/
+
     Autor createAutor(Autor newAutor);
 
     List<Autor> getAutors();
