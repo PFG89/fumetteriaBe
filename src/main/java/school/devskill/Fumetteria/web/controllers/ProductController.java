@@ -42,7 +42,7 @@ public class ProductController {
             }
         }
 
-       /** for (int i = 0; i < ritorno.getList().size(); i++) {
+        for (int i = 0; i < ritorno.getList().size(); i++) {
             try {
 
                 FumettoDTO fumettoCorrente = ritorno.getList().get(i);
@@ -50,12 +50,10 @@ public class ProductController {
                 Autor autor = autorService.getAutor(idAutore);
                 fumettoCorrente.getAuthor().setName(autor.getName());
                 fumettoCorrente.getAuthor().setSurname(autor.getSurname());
-
-                ritorno.getList().add(mapper.convertValue(productsDalDb.get(i), FumettoDTO.class));
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
             }
-        } **/
+        }
 
         return ritorno;
     }

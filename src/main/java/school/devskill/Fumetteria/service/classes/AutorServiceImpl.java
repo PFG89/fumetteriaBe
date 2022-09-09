@@ -3,7 +3,6 @@ package school.devskill.Fumetteria.service.classes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import school.devskill.Fumetteria.model.Autor;
-import school.devskill.Fumetteria.model.User;
 import school.devskill.Fumetteria.persistence.repository.IAutorRepository;
 import school.devskill.Fumetteria.service.interfaces.IAutorService;
 
@@ -20,12 +19,14 @@ public class AutorServiceImpl implements IAutorService {
         this.autorRepository = autorRepository;
     }
 
-    /**
+
     @Override
     public Autor getAutor(Integer id) {
-        return autorRepository.autorPerId(id);
+
+        return autorRepository.findById(id).get();
+
     }
-    **/
+
 
 
     @Override

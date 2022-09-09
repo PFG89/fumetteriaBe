@@ -5,4 +5,6 @@ import school.devskill.Fumetteria.model.User;
 
 public interface IUserRepository extends CrudRepository<User,Integer> {
 
+
+
 }

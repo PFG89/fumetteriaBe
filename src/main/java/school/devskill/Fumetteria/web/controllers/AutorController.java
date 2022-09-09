@@ -74,4 +74,11 @@ public class AutorController {
         daModificare.setId(id);
         return mapper.convertValue(autorService.updateAutor(daModificare), AutorDTO.class);
     };
+
+    @GetMapping(value = HTTPUtility.GETBYID)
+    public AutorDTO autorgett(@PathVariable Integer id){
+
+        return mapper.convertValue(autorService.getAutor(id),AutorDTO.class);
+    };
+
 }
