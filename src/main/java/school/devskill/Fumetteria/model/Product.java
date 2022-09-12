@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import school.devskill.Fumetteria.web.dto.single.AutorDTO;
 
 import javax.persistence.*;
 
@@ -30,6 +29,7 @@ public class Product {
     @Column(length = 100)
     private String  title;
 
+    @Column(length = 100)
     private Integer dimension;
 
     @Column(length = 20, nullable = false)
@@ -39,8 +39,9 @@ public class Product {
     private String type;
 
     @Column(nullable = false)
-    private String autor;
+    private String author;
 
+    @Column
     private String pages;
 
 

@@ -13,12 +13,12 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FumettoDTO {
     private String id;
+    private String name;
     private String description;
     private String type;
-    private AutorDTO author;
+    private AuthorDTO author;
     private String category;
     private String  photo = null;
-
-
+    private String  pages;
 
 }

@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AutorCommand {
+public class AuthorCommand {
     private String name;
     private String surname;
 }

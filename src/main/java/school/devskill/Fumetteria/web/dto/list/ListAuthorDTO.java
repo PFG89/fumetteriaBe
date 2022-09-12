@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import school.devskill.Fumetteria.web.dto.single.AutorDTO;
+import school.devskill.Fumetteria.web.dto.single.AuthorDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,6 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ListAutorDTO {
-    private List<AutorDTO> list = new ArrayList<>();
+public class ListAuthorDTO {
+    private List<AuthorDTO> list = new ArrayList<>();
 }

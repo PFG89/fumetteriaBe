@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Autor {
+public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)

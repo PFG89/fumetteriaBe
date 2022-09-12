@@ -9,12 +9,12 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AutorDTO {
+public class AuthorDTO {
     private Integer id;
     private String name;
     private String surname;
 
-    public AutorDTO(Integer id){
+    public AuthorDTO(Integer id){
         this.id=id;
     }
 }

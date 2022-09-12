@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import school.devskill.Fumetteria.model.Autor;
+import school.devskill.Fumetteria.model.Author;
 import school.devskill.Fumetteria.model.Product;
-import school.devskill.Fumetteria.service.interfaces.IAutorService;
+import school.devskill.Fumetteria.service.interfaces.IAuthorService;
 import school.devskill.Fumetteria.service.interfaces.IProductService;
 import school.devskill.Fumetteria.utility.HTTPUtility;
 import school.devskill.Fumetteria.web.dto.list.ListFumettoDTO;
@@ -19,13 +19,13 @@ import java.util.List;
 @RequestMapping("/product")
 public class ProductController {
 
-    private final IAutorService autorService;
+    private final IAuthorService authorService;
     private final IProductService productService;
     private final ObjectMapper mapper;
 
     @Autowired
-    public ProductController(IAutorService autorService, IProductService productService, ObjectMapper mapper) {
-        this.autorService = autorService;
+    public ProductController(IAuthorService authorService, IProductService productService, ObjectMapper mapper) {
+        this.authorService = authorService;
         this.productService = productService;
         this.mapper = mapper;
     }
@@ -47,9 +47,9 @@ public class ProductController {
 
                 FumettoDTO fumettoCorrente = ritorno.getList().get(i);
                 Integer idAutore = fumettoCorrente.getAuthor().getId();
-                Autor autor = autorService.getAutor(idAutore);
-                fumettoCorrente.getAuthor().setName(autor.getName());
-                fumettoCorrente.getAuthor().setSurname(autor.getSurname());
+                Author author = authorService.getAuthor(idAutore);
+                fumettoCorrente.getAuthor().setName(author.getName());
+                fumettoCorrente.getAuthor().setSurname(author.getSurname());
             } catch (IllegalArgumentException e) {
                 e.printStackTrace();
             }
