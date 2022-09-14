@@ -11,5 +11,6 @@ public class HTTPUtility {
     public static final String GET = "/get"; //per DTO
     public static final String GETBYID = "/get/{id}";
     public static final String DELETE = "/delete/{id}";
+    public static final String DELETEBYNAME = "/delete/{name}";
     public static final String UPDATE = "/update/{id}";
 }

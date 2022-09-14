@@ -22,4 +22,9 @@ public class ProductServiceImpl implements IProductService {
     public List<Product> getProducts() {
         return (List<Product>) repository.findAll();
     }
+
+    @Override
+    public Product createProduct(Product newProduct) {
+        return repository.save(newProduct);
+    }
 }
